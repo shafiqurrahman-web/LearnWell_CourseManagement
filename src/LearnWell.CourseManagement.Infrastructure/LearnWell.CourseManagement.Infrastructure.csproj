@@ -3,12 +3,23 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>false</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LearnWell.CourseManagement.Application\LearnWell.CourseManagement.Application.csproj" />
     <ProjectReference Include="..\LearnWell.CourseManagement.Domain\LearnWell.CourseManagement.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Ddatabase\Migrations\" />
+    <Folder Include="Ddatabase\" />
+    <Folder Include="Shared\" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,9 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/LearnWell.CourseManagement.Api/LearnWell.CourseManagement.Api.csproj", "src/LearnWell.CourseManagement.Api/"]
+COPY ["src/LearnWell.CourseManagement.Application/LearnWell.CourseManagement.Application.csproj", "src/LearnWell.CourseManagement.Application/"]
+COPY ["src/LearnWell.CourseManagement.Domain/LearnWell.CourseManagement.Domain.csproj", "src/LearnWell.CourseManagement.Domain/"]
+COPY ["src/LearnWell.CourseManagement.Infrastructure/LearnWell.CourseManagement.Infrastructure.csproj", "src/LearnWell.CourseManagement.Infrastructure/"]
 RUN dotnet restore "./src/LearnWell.CourseManagement.Api/LearnWell.CourseManagement.Api.csproj"
 COPY . .
 WORKDIR "/src/src/LearnWell.CourseManagement.Api"

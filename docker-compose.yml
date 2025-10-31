@@ -1,0 +1,22 @@
+services:
+  learnwell.coursemanagement.api:
+    image: ${DOCKER_REGISTRY-}coursemanagementapi
+    container_name: Learnwell.CourseManagement.API
+    build:
+      context: .
+      dockerfile: src/LearnWell.CourseManagement.Api/Dockerfile
+    depends_on:
+      - coursemanagement-db
+  
+  coursemanagement-db:
+    image: postgres:latest
+    container_name: coursemanagement-db
+    environment:
+      POSTGRES_DB: coursemanagement
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abcd1234!
+      PGDATA: /var/lib/postgresql/custom_data  #  use custom path inside container
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/custom_data
+    ports:
+      - "5433:5432"

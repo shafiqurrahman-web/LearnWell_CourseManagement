@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnWell.CourseManagement.Infrastructure", "src\LearnWell.CourseManagement.Infrastructure\LearnWell.CourseManagement.Infrastructure.csproj", "{E3F302CE-C541-4A47-8D9D-7B7E2358C3F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnWell.CourseManagement.Application", "src\LearnWell.CourseManagement.Application\LearnWell.CourseManagement.Application.csproj", "{A459196D-E4B0-489D-B048-AEE8F063B49A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B6F001B9-39AD-4A76-AF80-914143627616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnWell.CourseManagement.Application.UnitTests", "tests\LearnWell.CourseManagement.Application.UnitTests\LearnWell.CourseManagement.Application.UnitTests.csproj", "{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +41,14 @@ Global
 		{A459196D-E4B0-489D-B048-AEE8F063B49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A459196D-E4B0-489D-B048-AEE8F063B49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A459196D-E4B0-489D-B048-AEE8F063B49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +58,7 @@ Global
 		{27925CB1-1E90-4C2B-B468-64D0F47951C0} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E3F302CE-C541-4A47-8D9D-7B7E2358C3F1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A459196D-E4B0-489D-B048-AEE8F063B49A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164} = {B6F001B9-39AD-4A76-AF80-914143627616}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F71B20-A9E3-4F6A-A64E-FA3CFE427E3B}
