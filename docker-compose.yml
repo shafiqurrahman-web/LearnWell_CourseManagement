@@ -20,3 +20,10 @@ services:
       - ./.containers/db:/var/lib/postgresql/custom_data
     ports:
       - "5433:5432"
+
+  learnwell-redis:
+    image: redis:latest
+    container_name: learnwell.redis
+    restart: always
+    ports:
+      - "6379:6379"   
