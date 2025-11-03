@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using Quartz;
 
 namespace LearnWell.CourseManagement.Infrastructure.Outbox;
 public class ProcessOutboxMessageJobSetup : IConfigureOptions<QuartzOptions>

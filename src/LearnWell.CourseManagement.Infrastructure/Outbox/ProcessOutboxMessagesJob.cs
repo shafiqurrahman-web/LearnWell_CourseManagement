@@ -1,8 +1,13 @@
-﻿using MediatR;
+﻿using LearnWell.CourseManagement.Application.Abstractions.Clock;
+using LearnWell.CourseManagement.Application.Abstractions.Data;
+using LearnWell.CourseManagement.Domain.Entities.Abstractions;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Quartz;
 using System.Data;
+using Dapper;
 
 namespace LearnWell.CourseManagement.Infrastructure.Outbox;
 

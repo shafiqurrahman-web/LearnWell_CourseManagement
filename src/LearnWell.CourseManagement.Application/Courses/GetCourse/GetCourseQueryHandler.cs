@@ -2,7 +2,6 @@
 using LearnWell.CourseManagement.Application.Abstractions.Messaging;
 using LearnWell.CourseManagement.Domain.Entities.Abstractions;
 using LearnWell.CourseManagement.Domain.Entities.Courses;
-using LearnWell.CourseManagement.Domain.Entities.Users;
 
 namespace LearnWell.CourseManagement.Application.Courses.GetCourse;
 

@@ -1,5 +1,4 @@
-﻿using LearnWell.CourseManagement.Domain.Entities.Users;
-using LearnWell.CourseManagement.Domain.Entities.Users.ValueObjects;
+﻿using LearnWell.CourseManagement.Domain.Entities.Users.ValueObjects;
 
 namespace LearnWell.CourseManagement.Application.UnitTests.Users;
 internal static class UserData
