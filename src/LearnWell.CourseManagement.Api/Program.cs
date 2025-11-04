@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
 {
     //app.MapOpenApi();
     app.MapOpenApi("/openapi/v1/openapi.json");
-
+    
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/openapi/v1/openapi.json", "LearnWell.CourseManagement.Api v1");        
@@ -39,10 +39,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapHealthChecks("/health", new HealthCheckOptions
-{
-    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-});
-
 
 app.Run();

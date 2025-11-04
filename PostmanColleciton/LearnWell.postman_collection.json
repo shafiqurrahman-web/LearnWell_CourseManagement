@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "LearnWell CourseManagement API",
+    "_postman_id": "c26b1f56-1234-4567-9876-abcdef123456",
+    "description": "Test Keycloak auth and API endpoints for LearnWell CourseManagement",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Staff Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "grant_type", "value": "password", "type": "text" },
+            { "key": "client_id", "value": "coursemanagement-auth-client", "type": "text" },
+            { "key": "client_secret", "value": "ISF6vaXNTMGpTSbJ6AtL12hxVLIhqQwo", "type": "text" },
+            { "key": "username", "value": "staffuser", "type": "text" },
+            { "key": "password", "value": "Staff123!", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/realms/coursemanagement/protocol/openid-connect/token",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": [
+            "realms",
+            "coursemanagement",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Course by Id (Staff)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{staff_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5026/api/Course/123e4567-e89b-12d3-a456-426614174000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5026",
+          "path": [
+            "api",
+            "Course",
+            "123e4567-e89b-12d3-a456-426614174000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Student Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "grant_type", "value": "password", "type": "text" },
+            { "key": "client_id", "value": "coursemanagement-auth-client", "type": "text" },
+            { "key": "client_secret", "value": "ISF6vaXNTMGpTSbJ6AtL12hxVLIhqQwo", "type": "text" },
+            { "key": "username", "value": "studentuser", "type": "text" },
+            { "key": "password", "value": "Student123!", "type": "text" }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/realms/coursemanagement/protocol/openid-connect/token",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": [
+            "realms",
+            "coursemanagement",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Course by Id (Student)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{student_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5026/api/Course/123e4567-e89b-12d3-a456-426614174000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5026",
+          "path": [
+            "api",
+            "Course",
+            "123e4567-e89b-12d3-a456-426614174000"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "staff_token", "value": "" },
+    { "key": "student_token", "value": "" }
+  ]
+}

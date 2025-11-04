@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LearnWell.CourseManagement.Application.Courses.GetCourse;
+using LearnWell.CourseManagement.Infrastructure.Authorization.Constants;
 using MediatR;
-using LearnWell.CourseManagement.Application.Courses.GetCourse;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LearnWell.CourseManagement.Api.Controllers.Courses;
 
@@ -16,6 +18,7 @@ public class CourseController : ControllerBase
         _sender = sender;
     }
 
+    [Authorize(Policy = Policies.CanReadCourse)]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetCourse(Guid id, CancellationToken cancellationToken)
     {
