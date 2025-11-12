@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#nullable enable
+
+using System.Diagnostics.CodeAnalysis;
 
 namespace LearnWell.CourseManagement.Domain.Entities.Abstractions;
 
@@ -43,3 +45,6 @@ public class Result<TValue> : Result
     public static implicit operator Result<TValue>(TValue? value) => Create(value);
 }
 
+#nullable restore
+
+        

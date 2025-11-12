@@ -1,7 +1,7 @@
 ﻿namespace LearnWell.CourseManagement.Domain.Entities.Users;
 public sealed class Permission
 {
-    public static readonly Permission UsersRead = new(1, "users:read");
+    public static readonly Permission CourseRead = new(1, "course:read");
 
     public Permission(int id, string name)
     {

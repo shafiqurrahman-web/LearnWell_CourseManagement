@@ -2,7 +2,7 @@
 using LearnWell.CourseManagement.Domain.Entities.Courses;
 
 namespace LearnWell.CourseManagement.Application.Courses.GetCourse;
-public record GetCourseQuery(Guid CourseId) : ICachedQuery<Course>
+public record GetCourseQuery(Guid CourseId) : ICachedQuery<CourseResponse>
 {
     public string CacheKey => $"courses-{CourseId}";
 

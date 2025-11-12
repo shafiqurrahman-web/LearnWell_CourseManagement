@@ -5,7 +5,7 @@ using LearnWell.CourseManagement.Infrastructure.Outbox;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
-namespace LearnWell.CourseManagement.Infrastructure.Repositories;
+namespace LearnWell.CourseManagement.Infrastructure.Ddatabase;
 public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
     private static readonly JsonSerializerSettings JsonSerializerSettings = new()
@@ -49,24 +49,6 @@ public sealed class ApplicationDbContext : DbContext, IUnitOfWork
         }
         
     }
-
-    //private async Task PublishDomainEventsAsync()
-    //{
-    //   
-    //    var domainEvents = ChangeTracker
-    //        .Entries<IEntity>()
-    //        .Select(entry => entry.Entity)
-    //        .SelectMany(entity =>
-    //        {
-    //            var domainEvents = entity.GetDomainEvents();
-
-    //            entity.ClearDomainEvents();
-
-    //            return domainEvents;
-    //        }).ToList();
-
-    //    foreach (var domainEvent in domainEvents) await _publisher.Publish(domainEvent);
-    //}
 
     private void AddDomainEventsAsOutboxMessages()
     {

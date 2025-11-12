@@ -1,5 +1,6 @@
 ﻿using LearnWell.CourseManagement.Application.Abstractions.Caching;
 using LearnWell.CourseManagement.Domain.Entities.Users;
+using LearnWell.CourseManagement.Infrastructure.Ddatabase;
 using LearnWell.CourseManagement.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 

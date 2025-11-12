@@ -3,9 +3,12 @@ using LearnWell.CourseManagement.Api.Extensions;
 using LearnWell.CourseManagement.Application;
 using LearnWell.CourseManagement.Infrastructure;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
 
 
 builder.Services.AddControllers();
@@ -32,12 +35,20 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.ApplyMigrations();
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
+app.UseRequestContextLogging();
+app.UseSerilogRequestLogging();
+app.UseCustomExceptionHandler();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.Run();

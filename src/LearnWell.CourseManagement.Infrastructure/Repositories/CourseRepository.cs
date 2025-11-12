@@ -1,5 +1,6 @@
 ﻿using LearnWell.CourseManagement.Domain.Entities.Classes;
 using LearnWell.CourseManagement.Domain.Entities.Courses;
+using LearnWell.CourseManagement.Infrastructure.Ddatabase;
 using Microsoft.EntityFrameworkCore;
 
 namespace LearnWell.CourseManagement.Infrastructure.Repositories;
@@ -9,12 +10,8 @@ internal sealed class CourseRepository : Repository<Course, CourseId>, ICourseRe
     {
     }
 
-    public async Task<bool> IsOverlappingAsync(Class clas, CancellationToken cancellationToken = default)
+    public Task<bool> IsOverlappingAsync(Class clas, CancellationToken cancellationToken = default)
     {
-        return await DbContext
-            .Set<Course>()
-            .AnyAsync(course =>
-                        course.CourseClasses.FirstOrDefault().ClassId == clas.Id,
-                       cancellationToken);
+        throw new NotImplementedException();
     }
 }
