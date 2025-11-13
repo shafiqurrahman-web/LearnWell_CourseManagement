@@ -1,5 +1,5 @@
 ﻿using LearnWell.CourseManagement.Domain.Entities.Users;
-using LearnWell.CourseManagement.Infrastructure.Ddatabase;
+using LearnWell.CourseManagement.Infrastructure.Database;
 
 namespace LearnWell.CourseManagement.Infrastructure.Repositories;
 internal sealed class UserRepository : Repository<User, UserId>, IUserRepository

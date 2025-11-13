@@ -8,9 +8,9 @@ namespace LearnWell.CourseManagement.Domain.Entities.Enrollments
     public sealed class Enrollment : Entity<EnrollmentId>
     {
         
-        public Guid StudentId { get; set; }
-        public Guid ClassId { get; set; }
-        public Guid? EnrolledBy { get; set; }
+        public StudentId StudentId { get; set; }
+        public ClassId ClassId { get; set; }
+        public UserId EnrolledBy { get; set; }
         public DateTime EnrolledAt { get; set; } = DateTime.UtcNow;
         public bool FromCourseDefault { get; set; } // true if added via course enrollment
 

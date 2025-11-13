@@ -1,9 +1,8 @@
 ﻿using LearnWell.CourseManagement.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using LearnWell.CourseManagement.Domain.Entities.Users.ValueObjects; 
 
-namespace LearnWell.CourseManagement.Infrastructure.Ddatabase.Configurations;
+namespace LearnWell.CourseManagement.Infrastructure.Database.Configurations;
 internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)

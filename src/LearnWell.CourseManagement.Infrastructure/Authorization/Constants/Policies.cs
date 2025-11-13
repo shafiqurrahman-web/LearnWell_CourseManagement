@@ -28,5 +28,11 @@
         public const string CanViewMyCourses = Roles.MyCoursesRead;
         public const string CanViewMyClasses = Roles.MyClassesRead;
         public const string CanViewClassmates = Roles.ClassmatesRead;
+
+        //User Policies
+        public const string CanCreateUser = Roles.UserCreate;
+        public const string CanReadUser = Roles.UserRead;
+        public const string CanUpdateUser = Roles.UserUpdate;
+        public const string CanDeleteUser = Roles.UserDelete;
     }
 }

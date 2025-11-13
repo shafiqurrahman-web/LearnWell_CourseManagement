@@ -28,7 +28,7 @@ using LearnWell.CourseManagement.Application.Abstractions.Caching;
 using LearnWell.CourseManagement.Infrastructure.Caching;
 using Asp.Versioning;
 using LearnWell.CourseManagement.Infrastructure.Authorization.Constants;
-using LearnWell.CourseManagement.Infrastructure.Ddatabase;
+using LearnWell.CourseManagement.Infrastructure.Database;
 
 
 namespace LearnWell.CourseManagement.Infrastructure;

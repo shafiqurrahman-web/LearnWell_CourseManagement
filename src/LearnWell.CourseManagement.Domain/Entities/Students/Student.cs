@@ -10,7 +10,7 @@ namespace LearnWell.CourseManagement.Domain.Entities.Students;
 
 public sealed class Student : Entity<StudentId>
 {
-    public Guid UserId { get; set; }
+    public UserId UserId { get; set; }
     public string StudentNumber { get; set; } = default!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

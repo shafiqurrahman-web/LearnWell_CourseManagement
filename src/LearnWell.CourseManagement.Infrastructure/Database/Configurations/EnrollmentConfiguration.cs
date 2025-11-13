@@ -1,10 +1,9 @@
-﻿
-using LearnWell.CourseManagement.Domain.Entities.Enrollments;
+﻿using LearnWell.CourseManagement.Domain.Entities.Enrollments;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace LearnWell.CourseManagement.Infrastructure.Ddatabase.Configurations;
+namespace LearnWell.CourseManagement.Infrastructure.Database.Configurations;
 
 
 

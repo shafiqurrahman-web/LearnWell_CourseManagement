@@ -1,5 +1,4 @@
 ﻿using LearnWell.CourseManagement.Application.Abstractions.Caching;
-using LearnWell.CourseManagement.Domain.Entities.Courses;
 
 namespace LearnWell.CourseManagement.Application.Courses.GetCourse;
 public record GetCourseQuery(Guid CourseId) : ICachedQuery<CourseResponse>

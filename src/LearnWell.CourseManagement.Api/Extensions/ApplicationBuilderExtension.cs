@@ -1,5 +1,5 @@
 ﻿using LearnWell.CourseManagement.Api.Middlewares;
-using LearnWell.CourseManagement.Infrastructure.Ddatabase;
+using LearnWell.CourseManagement.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace LearnWell.CourseManagement.Api.Extensions;

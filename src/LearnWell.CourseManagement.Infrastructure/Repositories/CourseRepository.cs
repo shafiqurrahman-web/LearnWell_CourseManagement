@@ -1,7 +1,6 @@
 ﻿using LearnWell.CourseManagement.Domain.Entities.Classes;
 using LearnWell.CourseManagement.Domain.Entities.Courses;
-using LearnWell.CourseManagement.Infrastructure.Ddatabase;
-using Microsoft.EntityFrameworkCore;
+using LearnWell.CourseManagement.Infrastructure.Database;
 
 namespace LearnWell.CourseManagement.Infrastructure.Repositories;
 internal sealed class CourseRepository : Repository<Course, CourseId>, ICourseRepository

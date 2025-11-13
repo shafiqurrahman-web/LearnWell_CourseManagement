@@ -7,7 +7,9 @@ services:
       dockerfile: src/LearnWell.CourseManagement.Api/Dockerfile
     depends_on:
       - coursemanagement-db
-  
+      - coursemanagement-idp
+      - learnwell-redis
+
   coursemanagement-db:
     image: postgres:latest
     container_name: coursemanagement-db
@@ -15,7 +17,7 @@ services:
       POSTGRES_DB: coursemanagement
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Abcd1234!
-      PGDATA: /var/lib/postgresql/custom_data  #  use custom path inside container
+      PGDATA: /var/lib/postgresql/custom_data
     volumes:
       - ./.containers/db:/var/lib/postgresql/custom_data
     ports:
@@ -30,6 +32,19 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
       - "8080:8080"
+  
+  coursemanagement-seq:
+    image: datalust/seq:latest
+    container_name: coursemanagement.Seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=MySecurePassword123
+    ports:
+      - "5341:5341"
+      - "8081:80"
+    volumes:
+      - seqdata:/data
+  
 
   learnwell-redis:
     image: redis:latest
@@ -37,3 +52,7 @@ services:
     restart: always
     ports:
       - "6379:6379"   
+
+volumes:
+  seqdata:
+   

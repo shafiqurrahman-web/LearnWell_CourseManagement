@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace LearnWell.CourseManagement.Infrastructure.Ddatabase.Configurations;
+namespace LearnWell.CourseManagement.Infrastructure.Database.Configurations;
 
 internal sealed class CourseClassConfiguration : IEntityTypeConfiguration<CourseClass>
 {

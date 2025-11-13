@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LearnWell.CourseManagement.Infrastructure.Ddatabase.Configurations;
+namespace LearnWell.CourseManagement.Infrastructure.Database.Configurations;
 public sealed class PermissionConfiguration : IEntityTypeConfiguration<Permission>
 {
     public void Configure(EntityTypeBuilder<Permission> builder)

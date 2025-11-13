@@ -1,6 +1,6 @@
 ﻿
 using LearnWell.CourseManagement.Domain.Entities.Abstractions;
-using LearnWell.CourseManagement.Infrastructure.Ddatabase;
+using LearnWell.CourseManagement.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace LearnWell.CourseManagement.Infrastructure.Repositories;

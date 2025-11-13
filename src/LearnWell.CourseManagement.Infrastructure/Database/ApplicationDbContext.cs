@@ -5,7 +5,7 @@ using LearnWell.CourseManagement.Infrastructure.Outbox;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
-namespace LearnWell.CourseManagement.Infrastructure.Ddatabase;
+namespace LearnWell.CourseManagement.Infrastructure.Database;
 public sealed class ApplicationDbContext : DbContext, IUnitOfWork
 {
     private static readonly JsonSerializerSettings JsonSerializerSettings = new()

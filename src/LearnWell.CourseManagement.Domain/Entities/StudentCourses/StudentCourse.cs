@@ -7,9 +7,9 @@ namespace LearnWell.CourseManagement.Domain.Entities.StudentCourses
 {
     public sealed class StudentCourse : Entity<StudentCourseId>
     {        
-        public Guid StudentId { get; set; }
-        public Guid CourseId { get; set; }
-        public Guid? EnrolledBy { get; set; }
+        public StudentId StudentId { get; set; }
+        public CourseId CourseId { get; set; }
+        public UserId EnrolledBy { get; set; }
         public DateTime EnrolledAt { get; set; } = DateTime.UtcNow;
 
         // Navigation

@@ -29,6 +29,13 @@
         public const string MyClassesRead = "myclasses.read";
         public const string ClassmatesRead = "classmates.read";
 
+        // Student Roles
+        public const string UserCreate = "user.create";
+        public const string UserRead = "user.read";
+        public const string UserUpdate = "user.update";
+        public const string UserDelete = "user.delete";
+
+
         // Realm-level Roles
         public const string Staff = "staff";
         public const string Student = "student";
