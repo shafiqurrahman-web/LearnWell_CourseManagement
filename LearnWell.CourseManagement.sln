@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B6F001B9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnWell.CourseManagement.Application.UnitTests", "tests\LearnWell.CourseManagement.Application.UnitTests\LearnWell.CourseManagement.Application.UnitTests.csproj", "{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnWell.CourseManagement.Domain.UnitTests", "tests\LearnWell.CourseManagement.Domain.UnitTests\LearnWell.CourseManagement.Domain.UnitTests.csproj", "{36A8CC0B-7430-481E-88A5-057CB5EC8464}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A8CC0B-7430-481E-88A5-057CB5EC8464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A8CC0B-7430-481E-88A5-057CB5EC8464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A8CC0B-7430-481E-88A5-057CB5EC8464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A8CC0B-7430-481E-88A5-057CB5EC8464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{E3F302CE-C541-4A47-8D9D-7B7E2358C3F1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A459196D-E4B0-489D-B048-AEE8F063B49A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{ECBCA273-58BC-4A49-A7D1-2B9A25EFD164} = {B6F001B9-39AD-4A76-AF80-914143627616}
+		{36A8CC0B-7430-481E-88A5-057CB5EC8464} = {B6F001B9-39AD-4A76-AF80-914143627616}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72F71B20-A9E3-4F6A-A64E-FA3CFE427E3B}

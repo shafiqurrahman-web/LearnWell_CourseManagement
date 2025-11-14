@@ -1,5 +1,6 @@
 ﻿using LearnWell.CourseManagement.Application.Abstractions.Clock;
 using LearnWell.CourseManagement.Application.Abstractions.Messaging;
+using LearnWell.CourseManagement.Application.Classes.GenerateClass;
 using LearnWell.CourseManagement.Domain.Entities.Abstractions;
 using LearnWell.CourseManagement.Domain.Entities.Courses;
 using LearnWell.CourseManagement.Domain.Entities.Users;

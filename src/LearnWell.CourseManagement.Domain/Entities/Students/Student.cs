@@ -11,6 +11,7 @@ namespace LearnWell.CourseManagement.Domain.Entities.Students;
 public sealed class Student : Entity<StudentId>
 {
     public UserId UserId { get; set; }
+    public string FullName { get; set; }
     public string StudentNumber { get; set; } = default!;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
@@ -18,4 +19,5 @@ public sealed class Student : Entity<StudentId>
     public User User { get; set; } = default!;
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     public ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
+    
 }

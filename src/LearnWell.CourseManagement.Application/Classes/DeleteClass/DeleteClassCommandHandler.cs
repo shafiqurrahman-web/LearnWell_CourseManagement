@@ -1,0 +1,42 @@
+﻿using LearnWell.CourseManagement.Application.Abstractions.Clock;
+using LearnWell.CourseManagement.Application.Abstractions.Messaging;
+using LearnWell.CourseManagement.Domain.Entities.Abstractions;
+using LearnWell.CourseManagement.Domain.Entities.Classes;
+using LearnWell.CourseManagement.Domain.Entities.Courses;
+using LearnWell.CourseManagement.Domain.Entities.Users;
+
+namespace LearnWell.CourseManagement.Application.Classes.DeleteClass;
+
+public sealed class DeleteClassCommandHandler : ICommandHandler<DeleteClassCommand, Guid>
+{
+    private readonly IClassRepository _classRepository;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IDateTimeProvider _dateProvider;
+    private readonly IUserRepository _userRepository;
+
+    public DeleteClassCommandHandler(IClassRepository classRepository, IUnitOfWork unitOfWork, IDateTimeProvider dateProvider, IUserRepository userRepository)
+    {
+        _classRepository = classRepository;
+        _unitOfWork = unitOfWork;
+        _dateProvider = dateProvider;
+        _userRepository = userRepository;
+    }
+
+    public async Task<Result<Guid>> Handle(DeleteClassCommand command, CancellationToken cancellationToken)
+    {
+        try
+        {
+
+            await _classRepository.DeleteByIdAsync(new ClassId(command.CourseId), cancellationToken);
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            return Result.Success(command.CourseId);
+
+        }
+        catch (Exception)
+        {
+            return Result.Failure<Guid>(CourseErrors.NotUpdated);
+        }
+
+    }
+}

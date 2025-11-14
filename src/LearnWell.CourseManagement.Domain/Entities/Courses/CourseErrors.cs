@@ -14,4 +14,8 @@ public static class CourseErrors
         "Course.NotCreated",
         "The course is not created");
 
+    public static readonly Error NotUpdated = new(
+       "Course.NotUpdated",
+       "The course is not updated");
+
 }

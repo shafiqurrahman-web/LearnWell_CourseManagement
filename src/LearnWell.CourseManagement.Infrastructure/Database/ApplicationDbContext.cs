@@ -16,7 +16,7 @@ public sealed class ApplicationDbContext : DbContext, IUnitOfWork
     //private readonly IPublisher _publisher;
     private readonly IDateTimeProvider _dateTimeProvider;
 
-    public ApplicationDbContext(DbContextOptions options, 
+    public ApplicationDbContext(DbContextOptions options,
         //IPublisher publisher,
         IDateTimeProvider dateTimeProvider) : base(options)
     {
@@ -35,19 +35,16 @@ public sealed class ApplicationDbContext : DbContext, IUnitOfWork
     {
         try
         {
-            //First process the domain events and adding them to ChangeTracker as Outbox Messages,
-            //then persisting everything in the database in a single transaction "atomic operation" 
             AddDomainEventsAsOutboxMessages();
-
             var result = await base.SaveChangesAsync(cancellationToken);
-            
+
             return result;
         }
         catch (DbUpdateConcurrencyException ex)
         {
             throw new ConcurrencyException("Concurrency exception ocurred.", ex);
         }
-        
+
     }
 
     private void AddDomainEventsAsOutboxMessages()

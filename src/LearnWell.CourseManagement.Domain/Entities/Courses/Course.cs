@@ -17,7 +17,7 @@ public class Course : Entity<CourseId>
         CreatedBy = userId;
         CreatedAt = utcNow;
     }
-    protected Course() { }
+    public Course() { }
     public string Code { get; set; } = default!;
     public string Title { get; set; } = default!;
     public string Description { get; set; }

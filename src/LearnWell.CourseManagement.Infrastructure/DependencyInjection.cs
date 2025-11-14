@@ -29,6 +29,7 @@ using LearnWell.CourseManagement.Infrastructure.Caching;
 using Asp.Versioning;
 using LearnWell.CourseManagement.Infrastructure.Authorization.Constants;
 using LearnWell.CourseManagement.Infrastructure.Database;
+using LearnWell.CourseManagement.Domain.Entities.Classes;
 
 
 namespace LearnWell.CourseManagement.Infrastructure;
@@ -66,6 +67,7 @@ public static class DependencyInjection
         #region Repositories
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ICourseRepository, CourseRepository>();
+        services.AddScoped<IClassRepository, ClassRepository>();
 
 
         #endregion
