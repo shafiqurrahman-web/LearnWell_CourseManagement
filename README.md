@@ -101,20 +101,20 @@ Domain-driven entities and value objects
 
 MediatR-powered CQRS
 
-Architecture Overview
-┌───────────---─────────┐
-│      .NET 9 API       │
-│    (CQRS + DDD)       │
-└───────────▲──────────┘
-            │ EF Core
-┌───────────┴──────────┐
-│      PostgreSQL       │
-└───────────▲──────────┘
-            │ Auth
-┌───────────┴──────────┐
-│        Keycloak       │
-└──────────────────────┘
+High-Level System Diagram (ASCII)
 
+          ┌───────────────────────────────┐
+          │          .NET 9 API           │
+          │     (CQRS + DDD + MediatR)    │
+          └───────────────▲──────────────┘
+                          │ EF Core
+          ┌───────────────┴──────────────┐
+          │          PostgreSQL           │
+          └───────────────▲──────────────┘
+                          │ Authentication
+          ┌───────────────┴──────────────┐
+          │           Keycloak            │
+          └───────────────────────────────┘
 
 
 Clean Architecture Layers
@@ -248,6 +248,7 @@ Apply:
 dotnet ef database update -s ../LearnWell.CourseManagement.Api
 
 🧱 Project Structure
+
 src/
 ├── LearnWell.CourseManagement.Api
 │   ├── Controllers
@@ -271,6 +272,7 @@ src/
     ├── Database
     ├── Configurations
     └── Repositories
+
 
 📡 API Usage
 
