@@ -101,10 +101,8 @@ Domain-driven entities and value objects
 
 MediatR-powered CQRS
 
-🏗 Architecture Overview
-
-            │ REST API
-┌───────────┴──────────┐
+Architecture Overview
+┌───────────---─────────┐
 │      .NET 9 API       │
 │    (CQRS + DDD)       │
 └───────────▲──────────┘
@@ -117,6 +115,8 @@ MediatR-powered CQRS
 │        Keycloak       │
 └──────────────────────┘
 
+
+
 Clean Architecture Layers
 src/
 ├── LearnWell.CourseManagement.Api           → Presentation Layer
@@ -125,7 +125,7 @@ src/
 └── LearnWell.CourseManagement.Infrastructure → EF Core, Repositories, Configurations
 
 
-✔ Domain is pure
+✔ Domain is pure (no dependencies)
 ✔ Application uses MediatR
 ✔ Infrastructure performs persistence
 ✔ API is thin → calls queries/commands
