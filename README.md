@@ -165,7 +165,6 @@ Include:
   }
 }
 
-🧱 Project Structure
 src/
 ├── LearnWell.CourseManagement.Api
 │   ├── Controllers
@@ -191,6 +190,7 @@ src/
     ├── Repositories
     ├── Database
     └── Configurations
+
 
 📡 API Usage Examples
 Get Students for a Course
