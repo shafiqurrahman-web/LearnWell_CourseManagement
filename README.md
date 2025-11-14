@@ -36,7 +36,7 @@ The project digitizes and modernizes student onboarding, class scheduling, cours
 
 
 
-📘 [Overview](#overview)
+📘 ## 🛠 Overview
 
 The LearnWell Course Management System provides:
 
