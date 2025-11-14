@@ -101,7 +101,7 @@ Domain-driven entities and value objects
 
 MediatR-powered CQRS
 
-High-Level System Diagram (ASCII)
+High-Level System Diagram
 
           ┌───────────────────────────────┐
           │          .NET 9 API           │
