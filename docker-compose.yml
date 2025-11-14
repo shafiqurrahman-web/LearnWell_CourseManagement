@@ -9,6 +9,9 @@ services:
       - coursemanagement-db
       - coursemanagement-idp
       - learnwell-redis
+    ports:
+      - 5000:8080
+      - 5001:8081
 
   coursemanagement-db:
     image: postgres:latest
