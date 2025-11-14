@@ -21,39 +21,18 @@ Full Docker Compose Environment
 
 The project digitizes and modernizes student onboarding, class scheduling, course management, and academic workflows.
 
-📑 Table of Contents
+## 📚 Table of Contents
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Features](#features)
+- [Installation & Setup](#installation--setup)
+- [Docker Compose](#docker-compose)
+- [Keycloak Configuration](#keycloak-configuration)
+- [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+- [Tech Stack](#tech-stack)
 
-Overview
 
-Features
-
-Architecture
-
-Technology Stack
-
-Prerequisites
-
-Installation
-
-Docker Compose Setup
-
-Keycloak Setup
-
-Database + Migrations
-
-Project Structure
-
-API Usage
-
-SQL Schema
-
-EF Core Entities
-
-Logging (Seq + Serilog)
-
-Running the Application
-
-Unit Testing
 
 
 
