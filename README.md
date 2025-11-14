@@ -1,9 +1,31 @@
-A modular, domain-driven Course Management System built using .NET 9, EF Core, Clean Architecture, CQRS, and PostgreSQL.
-This project digitizes course, class, student, and enrollment management for LearnWell University.
+LearnWell Course Management System
+
+A modular, domain-driven Course, Class & Enrollment Management Platform for LearnWell University.
+This Proof-of-Concept demonstrates a scalable backend architecture using:
+
+.NET 9
+
+Clean Architecture + DDD
+
+CQRS (MediatR)
+
+PostgreSQL
+
+Keycloak Authentication
+
+Entity Framework Core
+
+Serilog + Seq Logging
+
+Full Docker Compose Environment
+
+The project digitizes and modernizes student onboarding, class scheduling, course management, and academic workflows.
 
 📑 Table of Contents
 
 Overview
+
+Features
 
 Architecture
 
@@ -13,68 +35,115 @@ Prerequisites
 
 Installation
 
-Database Setup
+Docker Compose Setup
 
-Run Migrations
+Keycloak Setup
 
-Running the API
-
-Environment Variables
+Database + Migrations
 
 Project Structure
 
 API Usage
 
+SQL Schema
+
+EF Core Entities
+
+Logging (Seq + Serilog)
+
+Running the Application
+
 Unit Testing
 
-Contribution
+
 
 📘 Overview
 
-LearnWell Course Management is a DDD-driven backend for managing:
+The LearnWell Course Management System provides:
 
-Courses
+Course Management
 
-Classes
+Class Management
 
-Students
+Shared classes across courses (e.g., Programming & Business share Math 101)
 
-Enrollments
+Student Management
+
+Enrollment Management
 
 Scheduling
 
-User access & policies
+Keycloak-based authentication
 
-It uses CQRS + MediatR for request/response handling and PostgreSQL for persistence.
+Full CQRS pipeline (Commands + Queries)
 
-🏛️ Architecture
+Clean Architecture with modular boundaries
 
-The project follows strict Clean Architecture:
+Backend is DDD-driven, separating domain logic, persistence, infrastructure, and application workflows clearly.
 
-/src
- ├── LearnWell.CourseManagement.Api         → Presentation
- ├── LearnWell.CourseManagement.Application → CQRS + Business Rules
- ├── LearnWell.CourseManagement.Domain      → Entities + Value Objects
- └── LearnWell.CourseManagement.Infrastructure → EF Core + Repositories
+🚀 Features
+
+CRUD for Courses, Classes, Students, and Enrollments
+
+Many-to-many Course ↔ Class relationships
+
+Students enrolled across multiple classes
+
+Authentication + Authorization via Keycloak
+
+Full Docker automation
+
+Seq-based centralized logging
+
+PostgreSQL with EF Core migrations
+
+Domain-driven entities and value objects
+
+MediatR-powered CQRS
+
+🏗 Architecture Overview
+
+            │ REST API
+┌───────────┴──────────┐
+│      .NET 9 API       │
+│    (CQRS + DDD)       │
+└───────────▲──────────┘
+            │ EF Core
+┌───────────┴──────────┐
+│      PostgreSQL       │
+└───────────▲──────────┘
+            │ Auth
+┌───────────┴──────────┐
+│        Keycloak       │
+└──────────────────────┘
+
+Clean Architecture Layers
+src/
+├── LearnWell.CourseManagement.Api           → Presentation Layer
+├── LearnWell.CourseManagement.Application    → CQRS, Handlers, Business Logic
+├── LearnWell.CourseManagement.Domain         → Entities, Value Objects, Enums
+└── LearnWell.CourseManagement.Infrastructure → EF Core, Repositories, Configurations
 
 
-✔ Domain Layer is pure (no dependencies)
-✔ Application uses MediatR for commands & queries
-✔ Infrastructure implements repositories
-✔ API is thin (controllers → handlers)
+✔ Domain is pure
+✔ Application uses MediatR
+✔ Infrastructure performs persistence
+✔ API is thin → calls queries/commands
 
 🧰 Technology Stack
-Component	Tech
+Component	Technology
 Backend	.NET 9
 Architecture	Clean Architecture + DDD
-Database	PostgreSQL
 ORM	EF Core 9
-Messaging	MediatR
-Logging	Serilog (optional: Seq)
-Auth	ASP.NET Identity / Policies
+DB	PostgreSQL
+Auth	Keycloak (OIDC)
+Messaging	MediatR (CQRS)
+Logging	Serilog + Seq
+Cache	Redis
+Containers	Docker Compose
 📦 Prerequisites
 
-Before setting up the project, install:
+Install the following:
 
 1️⃣ .NET 9 SDK
 
@@ -82,89 +151,103 @@ Verify:
 
 dotnet --version
 
-
-Should show:
-9.x.x
-
-2️⃣ PostgreSQL 16+
-
-Download: https://www.postgresql.org/download/
-
-Create a database named:
-
-learnwell_course_db
-
-3️⃣ (Optional) Install EF Tools
+2️⃣ Docker & Docker Compose
+3️⃣ EF Tools (optional)
 dotnet tool install --global dotnet-ef
 
 📥 Installation
 
 Clone the repository:
 
-git clone https://github.com/<your-user>/LearnWell_CourseManagement.git
+git clone https://github.com/<your-org>/LearnWell_CourseManagement.git
 cd LearnWell_CourseManagement
 
+⚙️ Environment Variables
 
-Restore packages:
+Create .env in root:
 
-dotnet restore
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=Abcd1234!
+POSTGRES_DB=coursemanagement
 
-🗄️ Database Setup
+KEYCLOAK_ADMIN=admin
+KEYCLOAK_ADMIN_PASSWORD=admin
 
-Update your connection string in:
+🐳 Docker Compose Setup
 
-src/LearnWell.CourseManagement.Api/appsettings.json
+Everything runs inside Docker:
+
+API
+
+PostgreSQL
+
+Keycloak
+
+Redis
+
+Seq Logging
+
+Run:
+
+docker compose up -d --build
 
 
-Example:
+Stop:
 
-"ConnectionStrings": {
-  "DefaultConnection": "Host=coursemanagement-db; Port=5432;Database=coursemanagement;Username=postgres;Password=yourpassword"
-}
+docker compose down
 
-🧭 Run Migrations
+🔐 Keycloak Setup
 
-Inside the Infrastructure project directory:
+Keycloak Admin Console:
+
+http://localhost:8080
+
+
+Login:
+
+Admin: admin
+
+Password: admin
+
+You may import a realm or configure:
+
+Realm: coursemanagement
+
+Clients:
+
+coursemanagement-auth-client
+
+coursemanagement-admin-client
+
+🗄 Database Setup
+
+Postgres starts automatically in Docker:
+
+Host: coursemanagement-db
+Database: coursemanagement
+User: postgres
+Password: Abcd1234!
+
+
+EF migrations run on API startup.
+
+Manual migration:
+
+dotnet ef database update
+
+🧭 Running EF Migrations
+
+From Infrastructure directory:
 
 cd src/LearnWell.CourseManagement.Infrastructure
-
-Add migration
 dotnet ef migrations add InitialCreate -s ../LearnWell.CourseManagement.Api
 
-Apply migration
-Migration will be applied automatically when the application starts.
 
+Apply:
 
-✔ -s points to the API startup assembly.
+dotnet ef database update -s ../LearnWell.CourseManagement.Api
 
-▶️ Running the API
-
-API will be running from docker container
-
-Swagger UI:
-
-https://localhost:5026/swagger
-
-🔐 Environment Variables
-
-Create a file:
-
-src/LearnWell.CourseManagement.Api/appsettings.Development.json
-
-
-Include:
-
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Host=coursemanagement-db;Database=coursemanagement;Username=postgres;Password=yourpassword"
-  },
-  "Jwt": {
-    "Key": "your-secret-key",
-    "Issuer": "LearnWell",
-    "Audience": "LearnWellUsers"
-  }
-}
-
+🧱 Project Structure
 src/
 ├── LearnWell.CourseManagement.Api
 │   ├── Controllers
@@ -172,13 +255,11 @@ src/
 │   └── Program.cs
 │
 ├── LearnWell.CourseManagement.Application
-│   ├── Courses
-│   │   ├── CreateCourse
-│   │   └── GetStudentsByCourse
-│   ├── Classes
-│   ├── Students
 │   ├── Abstractions
-│   └── Behaviors
+│   ├── Behaviors
+│   ├── Courses
+│   ├── Classes
+│   └── Students
 │
 ├── LearnWell.CourseManagement.Domain
 │   ├── Entities
@@ -187,23 +268,29 @@ src/
 │   └── Errors
 │
 └── LearnWell.CourseManagement.Infrastructure
-    ├── Repositories
     ├── Database
-    └── Configurations
+    ├── Configurations
+    └── Repositories
 
+📡 API Usage
 
-📡 API Usage Examples
-Get Students for a Course
+Once containers start:
+
+API:     http://localhost:5000
+Swagger: http://localhost:5000/swagger
+
+Example Endpoints
+Get Students of a Course
 GET /api/v1/courses/{courseId}/students
 
-Get Classes for a Course
+Get Classes of a Course
 GET /api/v1/courses/{courseId}/classes
 
 Create a Course
 POST /api/v1/courses
 
 
-JSON:
+Payload:
 
 {
   "title": "Programming 101",
@@ -211,9 +298,43 @@ JSON:
   "credits": 3
 }
 
+📚 Entity Relationship Diagram (Text)
+Course (1) ───── (M) ClassCourse (M) ───── (1) Class
+
+Student (1) ─── (M) Enrollment (M) ───── (1) Class
+
+📜 Logging (Serilog + Seq)
+Seq UI:
+http://localhost:5341
+
+Program.cs
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.Seq("http://coursemanagement-seq:5341")
+    .CreateLogger();
+
+🏁 Running the Application
+
+Run everything:
+
+docker compose up --build
+
+
+Then access:
+
+Service	URL
+API	http://localhost:5000
+
+Swagger	http://localhost:5000/swagger
+
+Keycloak	http://localhost:8080
+
+Seq	http://localhost:5341
+
+Postgres	localhost:5432
 🧪 Unit Testing
 
-Tests go inside:
+Tests are in:
 
 tests/LearnWell.CourseManagement.Tests
 
